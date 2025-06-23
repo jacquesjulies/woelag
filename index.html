@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+  <img src="image/logo.png" alt="Logo" class="logo" />
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <!-- Navigation Links with correct ID -->
+  <nav id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="him.html">For Him</a>
+    <a href="her.html">For Her</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+  
+    <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="image/hero.jpg" alt="SHLIAJIT">
+                <div class="content">
+                    <div class="author">ADVENTUROUS</div>
+                    <div class="title">SHILAJIT</div>
+                    <div class="topic">STAMINA</div>
+                    <div class="des">
+                        <!-- lorem 50 -->
+                      Shilajit enhances sexual health by boosting testosterone in men and balancing hormones in women. It improves libido, stamina, and energy levels in both sexes. Known for increasing fertility, it supports stronger erections, improved sperm quality, and heightened arousal. Its minerals and fulvic acid promote overall vitality and sexual performance naturally.
+                    </div>
+                    <div class="buttons">
+                        <a href="him.html">FOR HIM</a>
+                        <a href="her.html">FOR HER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/FACE4.jpg" alt="TONGKAT ALI">>
+                <div class="content">
+                    <div class="author">NAUGHTY</div>
+                    <div class="title">TONGKAT ALI</div>
+                    <div class="topic">EXPLOSIVE</div>
+                    <div class="des">
+                        Tongkat Ali is renowned for enhancing libido, stamina, and sexual performance in both men and women. It naturally boosts testosterone, supports erectile strength, and increases sperm quality in men. For women, it helps balance hormones, improves desire, and reduces stress—leading to heightened arousal and more satisfying intimate experiences overall.
+                    </div>
+                    <div class="buttons">
+                        <a href="him.html">FOR HIM</a>
+                        <a href="her.html">FOR HER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/producthero.jpg" alt="LIVIDO">
+                <div class="content">
+                    <div class="author">SEXY</div>
+                    <div class="title">LUVIDO</div>
+                    <div class="topic">LIBIDO BOOSTER</div>
+                    <div class="des">
+                        Luvido libido boosters support sexual vitality: in women, they enhance desire, arousal, natural lubrication, mood, and offer menopausal relief after 6–8 weeks. In men, they increase libido, boost energy and stamina, support erectile function and hormone balance—thanks to herbs like horny goat weed, maca, ginseng, damiana, and l‑arginine 
+                    </div>
+                    <div class="buttons">
+                        <a href="him.html">FOR HIM</a>
+                        <a href="her.html">FOR HER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/face2face.png" alt="black maca">
+                <div class="content">
+                    <div class="author">LUST</div>
+                    <div class="title">BLACK MACA</div>
+                    <div class="topic">ENDURANCE</div>
+                    <div class="des">
+                        Black maca is known to enhance libido in both men and women, improve stamina, balance hormones, and increase fertility. It supports erectile function in men and boosts arousal and sexual satisfaction in women. Regular use may lead to better energy, mood, and overall sexual performance without harmful side effects.
+                    </div>
+                    <div class="buttons">
+                        <a href="him.html">FOR HIM</a>
+                        <a href="her.html">FOR HER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="image/shilajit.png" alt="SHILAJIT">
+                <div class="content">
+                    <div class="title">
+                        shilajit
+                    </div>
+                    <div class="description">
+                        explosive
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/tonkat Ali.jpg" alt="tongkat ali">
+                <div class="content">
+                    <div class="title">
+                        TONGKAT ALI
+                    </div>
+                    <div class="description">
+                        all night long
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/livido.jpg" alt="livido">
+                <div class="content">
+                    <div class="title">
+                        LUVIDO
+                    </div>
+                    <div class="description">
+                        Libido booster
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/black maca.jpg" alt="black maca">
+                <div class="content">
+                    <div class="title">
+                        BLACK MACA
+                    </div>
+                    <div class="description">
+                        NONE STOP
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+    </div>
+    <footer class="site-footer">
+  <div class="footer-content">
+    <p>
+      <strong>Affiliate Disclaimer:</strong> This website promotes products from other companies. 
+      We do not collect any personal data, nor do we sell or fulfill any orders.
+    </p>
+    <p>© 2025 Woelag™. All rights reserved.</p>
+    <p>Last ad made with <span class="heart">♥</span> in Dysselsdorp.</p>
+  </div>
+</footer>
+
+    <script src="app.js">
+
+          function toggleMenu() {
+    const nav = document.getElementById("nav-links");
+    nav.classList.toggle("show");
+  }
+        
+    </script>
+</body>
+</html>

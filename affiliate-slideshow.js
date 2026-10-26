@@ -69,6 +69,7 @@ const existing=document.getElementById("affiliate-ad-slider");
 if(existing){
  existing.classList.add("wa-affiliate-frame",design);
  existing.querySelectorAll(".ad-slide").forEach(function(slide){slide.classList.add("wa-affiliate-slide");const copy=slide.querySelector(".ad-copy");if(copy)copy.classList.add("wa-affiliate-copy");const visual=slide.querySelector(".ad-visual");if(visual)visual.classList.add("wa-affiliate-visual");});
+ if(design==="wa-design-panorama")existing.querySelectorAll(".ad-copy h3").forEach(function(title){title.style.color="#fff";});
  const dots=Array.from(document.querySelectorAll(".ad-dot"));
  if(dots.length)dots[Math.floor(Math.random()*dots.length)].click();
  return;

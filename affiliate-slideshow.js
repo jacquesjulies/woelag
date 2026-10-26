@@ -67,7 +67,8 @@ let hash=0;for(let i=0;i<path.length;i++)hash=(hash*31+path.charCodeAt(i))|0;
 const design=designs[Math.abs(hash)%designs.length];
 const existing=document.getElementById("affiliate-ad-slider");
 if(existing){
- existing.classList.add(design);
+ existing.classList.add("wa-affiliate-frame",design);
+ existing.querySelectorAll(".ad-slide").forEach(function(slide){slide.classList.add("wa-affiliate-slide");const copy=slide.querySelector(".ad-copy");if(copy)copy.classList.add("wa-affiliate-copy");const visual=slide.querySelector(".ad-visual");if(visual)visual.classList.add("wa-affiliate-visual");});
  const dots=Array.from(document.querySelectorAll(".ad-dot"));
  if(dots.length)dots[Math.floor(Math.random()*dots.length)].click();
  return;

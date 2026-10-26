@@ -85,7 +85,7 @@
             <h3>Find your next adventure.</h3><p>Explore footwear and gear for running, hiking and days spent outdoors.</p>
             <a class="btn" href="https://c.trackmytarget.com/?a=qjpr0y&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer">Shop now ↗</a>
           </div>
-          <a class="ad-visual" href="https://c.trackmytarget.com/?a=qjpr0y&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Shop Salomon Sports through our affiliate link"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85" alt="Runner outdoors on a trail" loading="lazy"></a>
+          <a class="ad-visual" href="https://c.trackmytarget.com/?a=qjpr0y&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Shop Salomon Sports through our affiliate link"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85" alt="Runner outdoors on a trail" loading="eager" fetchpriority="high"></a>
         </article>
         <article class="ad-slide" data-slide="1" aria-hidden="true">
           <div class="ad-copy">
@@ -260,21 +260,30 @@
   if(!slider)return;
   const slides=Array.from(slider.querySelectorAll('.ad-slide'));
   const dots=Array.from(document.querySelectorAll('.ad-dot'));
+  const previous=document.getElementById('ad-prev');
+  const next=document.getElementById('ad-next');
+  if(!slides.length || !previous || !next)return;
   let current=0, timer=null;
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   function show(index){
     current=(index+slides.length)%slides.length;
     slides.forEach((slide,i)=>{const active=i===current;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));});
     dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===current)));
   }
   function stop(){if(timer){clearInterval(timer);timer=null;}}
-  function start(){stop();if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),6500);}
-  document.getElementById('ad-prev').addEventListener('click',()=>{show(current-1);start();});
-  document.getElementById('ad-next').addEventListener('click',()=>{show(current+1);start();});
+  function start(){
+    stop();
+    if(!reducedMotion.matches && !document.hidden)timer=setInterval(()=>show(current+1),6500);
+  }
+  previous.addEventListener('click',()=>{show(current-1);start();});
+  next.addEventListener('click',()=>{show(current+1);start();});
   dots.forEach(dot=>dot.addEventListener('click',()=>{show(Number(dot.dataset.go));start();}));
   slider.addEventListener('mouseenter',stop);
   slider.addEventListener('mouseleave',start);
   slider.addEventListener('focusin',stop);
-  slider.addEventListener('focusout',start);
+  slider.addEventListener('focusout',()=>{if(!slider.contains(document.activeElement))start();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start();});
+  reducedMotion.addEventListener?.('change',start);
   show(0);start();
 })();
 </script>

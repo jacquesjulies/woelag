@@ -84,7 +84,7 @@ offers.forEach((o,i)=>{
  article.querySelector(".wa-affiliate-tag").textContent=o[1];article.querySelector(".wa-affiliate-kicker").textContent=o[0];article.querySelector("h2").textContent=o[2];article.querySelector("p").textContent=o[3];
  const cta=article.querySelector(".wa-affiliate-cta");cta.href=o[5];cta.textContent=o[4];
  const visual=article.querySelector(".wa-affiliate-visual");visual.href=o[5];visual.setAttribute("aria-label","Explore "+o[0]+" through our affiliate link");
- const img=article.querySelector("img");img.src=o[6];img.alt=o[7];if(i===0)img.loading="eager";
+ const img=article.querySelector("img");img.src=o[6];img.alt=o[7];img.loading="eager";
  slides.appendChild(article);
  const dot=document.createElement("button");dot.className="wa-affiliate-dot";dot.type="button";dot.dataset.go=String(i);dot.setAttribute("aria-label","Show "+o[0]+" advert");dot.setAttribute("aria-current","false");dots.appendChild(dot);
 });

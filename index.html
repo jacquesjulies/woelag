@@ -20,6 +20,30 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 20px;background:var(--sage-dark);color:#fff;text-decoration:none;font-weight:750;border:1px solid var(--sage-dark)}.btn:hover{background:#2e3b2b}.btn.secondary{background:transparent;color:var(--sage-dark)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
     section{padding:72px 0}.section-head{max-width:720px;margin-bottom:32px}.section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin:8px 0 12px;letter-spacing:-.025em}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:0 10px 30px #343c3208}.card .symbol{width:48px;height:48px;border-radius:15px;background:var(--ivory);display:grid;place-items:center;font-size:1.4rem}.card h3{margin:16px 0 8px;font-size:1.2rem}.card p{color:var(--muted);margin:0 0 16px}.text-link{font-weight:800;text-decoration-thickness:1px;text-underline-offset:4px}
     .soft{background:var(--ivory)}.explore-section{background:linear-gradient(rgba(251,250,246,.84),rgba(251,250,246,.88)),url("image/producthero.jpg") center/cover no-repeat}.feature{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.feature-panel{padding:34px;border-radius:24px;background:#fff;border:1px solid var(--line)}.feature-panel h3{font-family:Georgia,serif;font-size:1.8rem;line-height:1.2;margin:10px 0}.feature-panel p{color:var(--muted)}.smallprint{font-size:.83rem;color:var(--muted)}.disclosure{background:#eef0e7;border-left:4px solid var(--sage);padding:17px 20px;border-radius:0 12px 12px 0;font-size:.91rem}
+
+    .ad-strip{padding:28px 0 38px;background:#f7f5ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .ad-strip-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+    .ad-strip-head h2{font:800 .78rem/1.2 system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0}
+    .ad-frame{position:relative;overflow:hidden;border-radius:24px;background:#e9e7dc;box-shadow:0 12px 32px #343c3212}
+    .ad-slide{display:none;min-height:250px;grid-template-columns:1fr 1fr;align-items:stretch}
+    .ad-slide.is-active{display:grid;animation:adFade .45s ease}
+    .ad-copy{padding:clamp(24px,5vw,54px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background:linear-gradient(135deg,#f4f0e6,#e7eadf)}
+    .ad-kicker{font-size:.72rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark)}
+    .ad-copy h3{font:700 clamp(1.8rem,3.4vw,3rem)/1.08 Georgia,serif;letter-spacing:-.03em;margin:12px 0}
+    .ad-copy p{max-width:440px;color:#51594e;margin:0 0 20px}
+    .ad-visual{min-height:250px;position:relative;background:#ddd}
+    .ad-visual img{display:block;width:100%;height:100%;min-height:250px;position:absolute;inset:0;object-fit:cover}
+    .ad-tag{display:inline-flex;align-items:center;border:1px solid #d7d5c8;border-radius:999px;padding:5px 10px;background:#ffffffa8;color:#5d6558;font-size:.72rem;font-weight:750;margin-bottom:14px}
+    .ad-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:15px}
+    .ad-arrow{width:38px;height:38px;border-radius:50%;border:1px solid #cfd3c7;background:#fff;color:var(--sage-dark);font-size:1.15rem;cursor:pointer}
+    .ad-dots{display:flex;gap:7px;align-items:center}
+    .ad-dot{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:#c9cec1;cursor:pointer}
+    .ad-dot[aria-current="true"]{background:var(--sage-dark);transform:scale(1.2)}
+    .ad-strip-note{font-size:.75rem;color:var(--muted);text-align:center;margin:10px 0 0}
+    @keyframes adFade{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:680px){.ad-slide,.ad-slide.is-active{grid-template-columns:1fr}.ad-visual{order:-1;min-height:180px}.ad-visual img{min-height:180px;max-height:220px;position:relative}.ad-copy{padding:23px}.ad-copy h3{font-size:2rem}.ad-strip-head{align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){.ad-slide.is-active{animation:none}}
+
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}.step{padding:22px;border-top:2px solid var(--sand)}.step h3{margin:6px 0}.step p{color:var(--muted);margin:0}.site-footer{background:var(--charcoal);color:#f7f5ee;padding:40px 0}.footer-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}.site-footer a{color:#f7f5ee}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.site-footer p{color:#d5d9d0;font-size:.9rem;max-width:740px}.mobile-only{display:none}
     @media(max-width:760px){.nav{align-items:flex-start;padding:12px 0;flex-direction:column;gap:10px}.nav-links{gap:12px 18px}.hero{padding:56px 0}.hero-grid,.feature{grid-template-columns:1fr;gap:24px}.hero-visual{min-height:260px}.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.blog-card img{height:210px}.steps{grid-template-columns:1fr}.hero-note{padding:22px}section{padding:54px 0}.mobile-only{display:inline-flex}.desktop-note{display:block}}
     @media(min-width:761px){.mobile-note{display:none}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
@@ -50,6 +74,48 @@
     </div>
   </section>
 
+
+  <section class="ad-strip" aria-label="Sponsored offers">
+    <div class="wrap">
+      <div class="ad-strip-head"><h2>Advertisement · Featured offers</h2><span class="smallprint">Sponsored links</span></div>
+      <div class="ad-frame" id="affiliate-ad-slider" aria-roledescription="carousel" aria-label="Affiliate offers">
+        <article class="ad-slide is-active" data-slide="0" aria-hidden="false">
+          <div class="ad-copy">
+            <span class="ad-tag">Sportswear & outdoor gear</span><div class="ad-kicker">Salomon Sports · South Africa</div>
+            <h3>Find your next adventure.</h3><p>Explore footwear and gear for running, hiking and days spent outdoors.</p>
+            <a class="btn" href="https://c.trackmytarget.com/?a=qjpr0y&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer">Shop now ↗</a>
+          </div>
+          <a class="ad-visual" href="https://c.trackmytarget.com/?a=qjpr0y&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Shop Salomon Sports through our affiliate link"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85" alt="Runner outdoors on a trail" loading="lazy"></a>
+        </article>
+        <article class="ad-slide" data-slide="1" aria-hidden="true">
+          <div class="ad-copy">
+            <span class="ad-tag">Meal kits & easy cooking</span><div class="ad-kicker">UCOOK · South Africa</div>
+            <h3>Make dinner an experience.</h3><p>Discover fresh ingredients and inspiring recipes for your next home-cooked meal.</p>
+            <a class="btn" href="https://c.trackmytarget.com/?a=trdkct&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer">Shop now ↗</a>
+          </div>
+          <a class="ad-visual" href="https://c.trackmytarget.com/?a=trdkct&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Explore UCOOK through our affiliate link"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Fresh ingredients and a colourful prepared meal" loading="lazy"></a>
+        </article>
+        <article class="ad-slide" data-slide="2" aria-hidden="true">
+          <div class="ad-copy">
+            <span class="ad-tag">Natural & eco-conscious shopping</span><div class="ad-kicker">Faithful to Nature · South Africa</div>
+            <h3>Make thoughtful choices, every day.</h3><p>Explore natural beauty, pantry favourites, personal care and more.</p>
+            <a class="btn" href="https://c.trackmytarget.com/?a=vpmli3&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer">Shop now ↗</a>
+          </div>
+          <a class="ad-visual" href="https://c.trackmytarget.com/?a=vpmli3&i=el31qe" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Shop Faithful to Nature through our affiliate link"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=85" alt="Natural skincare and botanical products" loading="lazy"></a>
+        </article>
+      </div>
+      <div class="ad-controls" aria-label="Slideshow controls">
+        <button class="ad-arrow" type="button" id="ad-prev" aria-label="Previous offer">‹</button>
+        <div class="ad-dots" role="group" aria-label="Choose an advert">
+          <button class="ad-dot" type="button" data-go="0" aria-label="Show Salomon Sports advert" aria-current="true"></button>
+          <button class="ad-dot" type="button" data-go="1" aria-label="Show UCOOK advert" aria-current="false"></button>
+          <button class="ad-dot" type="button" data-go="2" aria-label="Show Faithful to Nature advert" aria-current="false"></button>
+        </div>
+        <button class="ad-arrow" type="button" id="ad-next" aria-label="Next offer">›</button>
+      </div>
+      <p class="ad-strip-note">We may earn a commission from purchases made through these affiliate links.</p>
+    </div>
+  </section>
 
   <section id="featured-blogs" class="blog-preview">
     <div class="wrap">
@@ -117,5 +183,31 @@
   </div>
   <div class="wrap"><p>© 2026 Woelag. All rights reserved.</p></div>
 </footer>
+
+<script>
+(function(){
+  const slider=document.getElementById('affiliate-ad-slider');
+  if(!slider)return;
+  const slides=Array.from(slider.querySelectorAll('.ad-slide'));
+  const dots=Array.from(document.querySelectorAll('.ad-dot'));
+  let current=0, timer=null;
+  function show(index){
+    current=(index+slides.length)%slides.length;
+    slides.forEach((slide,i)=>{const active=i===current;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));});
+    dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===current)));
+  }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){stop();if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),6500);}
+  document.getElementById('ad-prev').addEventListener('click',()=>{show(current-1);start();});
+  document.getElementById('ad-next').addEventListener('click',()=>{show(current+1);start();});
+  dots.forEach(dot=>dot.addEventListener('click',()=>{show(Number(dot.dataset.go));start();}));
+  slider.addEventListener('mouseenter',stop);
+  slider.addEventListener('mouseleave',start);
+  slider.addEventListener('focusin',stop);
+  slider.addEventListener('focusout',start);
+  show(0);start();
+})();
+</script>
+
 </body>
 </html>

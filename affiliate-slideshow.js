@@ -88,8 +88,38 @@ offers.forEach((o,i)=>{
  slides.appendChild(article);
  const dot=document.createElement("button");dot.className="wa-affiliate-dot";dot.type="button";dot.dataset.go=String(i);dot.setAttribute("aria-label","Show "+o[0]+" advert");dot.setAttribute("aria-current","false");dots.appendChild(dot);
 });
-const anchor=document.querySelector("header")||document.querySelector("main")||document.body;
-if(anchor.tagName.toLowerCase()==="header")anchor.insertAdjacentElement("afterend",wrap);else anchor.insertAdjacentElement("beforebegin",wrap);
+const pathName=location.pathname.split("/").pop()||"index.html";
+if(pathName==="blogs.html"){
+ const blogGrid=document.querySelector(".section .grid");
+ if(blogGrid){
+  const cards=Array.from(blogGrid.children);
+  if(cards.length>3){
+   const lowerGrid=blogGrid.cloneNode(false);
+   cards.slice(3).forEach(card=>lowerGrid.appendChild(card));
+   blogGrid.insertAdjacentElement("afterend",wrap);
+   wrap.insertAdjacentElement("afterend",lowerGrid);
+  }else{
+   const section=blogGrid.closest(".section");
+   if(section)section.insertAdjacentElement("afterend",wrap);
+   else (document.querySelector("main")||document.body).appendChild(wrap);
+  }
+ }else{
+  const hero=document.querySelector(".hero-image-strip")||document.querySelector(".hero");
+  if(hero)hero.insertAdjacentElement("afterend",wrap);
+  else (document.querySelector("main")||document.body).appendChild(wrap);
+ }
+}else{
+ const main=document.querySelector("main")||document.body;
+ const hero=main.querySelector(".hero");
+ if(hero){
+  const nextContent=hero.nextElementSibling;
+  (nextContent||hero).insertAdjacentElement("afterend",wrap);
+ }else{
+  const header=document.querySelector("header");
+  if(header)header.insertAdjacentElement("afterend",wrap);
+  else main.insertAdjacentElement("afterbegin",wrap);
+ }
+}
 const allSlides=Array.from(slides.children),allDots=Array.from(dots.children),reduce=window.matchMedia("(prefers-reduced-motion: reduce)");
 let current=Math.floor(Math.random()*allSlides.length),timer=null;
 function show(n){current=(n+allSlides.length)%allSlides.length;allSlides.forEach((s,i)=>{s.classList.toggle("is-active",i===current);s.setAttribute("aria-hidden",String(i!==current));});allDots.forEach((d,i)=>d.setAttribute("aria-current",String(i===current)));}

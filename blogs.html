@@ -11,8 +11,35 @@
 
 .hero-image-strip{padding:0 0 38px;background:var(--ivory,#f4f0e6)}.hero-image-strip .wrap{width:min(1180px,92%);margin:auto}.hero-image-strip img{display:block;width:100%;height:clamp(250px,34vw,440px);object-fit:cover;object-position:center;border-radius:24px;box-shadow:0 20px 48px #343c3222;border:1px solid #ffffffb8}@media(max-width:600px){.hero-image-strip{padding-bottom:26px}.hero-image-strip img{height:250px;border-radius:18px}}
 </style>
+
+<style id="woelag-mobile-buttons">
+/* Consistent button sizing and mobile-safe layouts */
+button,.btn,.button,.cta,.cta-button,.link,.buy-button,.product-button,a[role="button],input[type="button"],input[type="submit"]{
+  max-width:100%;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box;
+}
+button,.btn,.button,.cta,.cta-button,.buy-button,.product-button,input[type="button"],input[type="submit"]{
+  min-width:0;
+}
+img,video,iframe{max-width:100%}
+@media(max-width:640px){
+  button,.btn,.button,.cta,.cta-button,.link,.buy-button,.product-button,a[role="button"],input[type="button"],input[type="submit"]{
+    font-size:clamp(.82rem,3.5vw,1rem)!important;
+    padding:clamp(9px,2.7vw,12px) clamp(12px,3.5vw,18px)!important;
+    min-height:42px;line-height:1.35;white-space:normal;overflow-wrap:anywhere;
+  }
+  .btn,.button,.cta,.cta-button,.buy-button,.product-button{width:auto;max-width:100%}
+  .actions,.button-group,.btn-group,.cta-group,.hero-actions,.card-actions{display:flex;flex-wrap:wrap;gap:10px}
+  .actions a,.button-group a,.btn-group a,.cta-group a,.hero-actions a,.card-actions a{max-width:100%;min-width:0}
+}
+#woelag-back-to-top-wrap{display:flex;justify-content:center;padding:22px 16px 28px}
+#woelag-back-to-top{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;min-height:44px;padding:11px 20px;border:1px solid #d8dfd1;border-radius:999px;background:#40503d;color:#fff;text-decoration:none;font:700 15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box;transition:background .2s ease,transform .2s ease}
+#woelag-back-to-top:hover{background:#71836a;transform:translateY(-2px)}
+#woelag-back-to-top:focus-visible{outline:3px solid #b77c60;outline-offset:3px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#woelag-back-to-top{transition:none}}
+</style>
 </head>
-<body>
+<body id="top">
 <header class="head"><div class="wrap nav"><a class="brand" href="index.html">WOELAG <span style="font-weight:500">· Natural living, informed choices</span></a><nav class="footer-links" aria-label="Main navigation"><a href="index.html">Home</a><a href="products.html">Products</a><a href="blogs.html" aria-current="page">Featured blogs</a><a href="about.html">About</a></nav></div></header>
 <main>
 <section class="hero"><div class="wrap"><div class="eyebrow">The Woelag journal</div><h1>Curious about a product? Start with the evidence.</h1><p>Explore featured product guides, ingredient explainers and practical questions to consider before buying. We bring together the science, the limitations and the product details—so you can make a more informed choice, at your own pace.</p></div></section>
@@ -65,4 +92,5 @@
 </main>
 <footer><div class="wrap"><div class="footer-links"><a href="index.html">Home</a><a href="about.html">About Woelag</a><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="editorial-policy.html">Editorial policy</a></div><p><small>© 2026 Woelag · Independent product discovery and evidence-led wellness information.</small></p></div></footer>
 <script src="affiliate-slideshow.js" defer></script>
+<div id="woelag-back-to-top-wrap"><a id="woelag-back-to-top" href="#top" aria-label="Back to top of page">↑ Back to top</a></div>
 </body></html>

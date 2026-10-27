@@ -9,8 +9,35 @@
 :root{--sage:#71836a;--sage-dark:#40503d;--ivory:#f4f0e6;--terra:#b77c60;--dark:#343c32;--muted:#657064;--line:#e4dfd2}
 *{box-sizing:border-box}body{margin:0;background:#fbfaf6;color:var(--dark);font:16px/1.8 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--sage-dark)}.wrap{width:min(850px,92%);margin:auto}.head,footer{background:var(--ivory);padding:16px 0}.head-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}.head-inner nav{display:flex;gap:16px;flex-wrap:wrap}.head-inner nav a{text-decoration:none;font-size:.92rem;font-weight:700}.wordmark{color:#25472f;text-decoration:none;font-family:"Brush Script MT","Segoe Script",Georgia,serif;font-size:2rem;font-weight:700;font-style:italic;letter-spacing:-.06em}.wordmark span{font-family:Georgia,serif;font-size:.52em;font-style:normal;font-weight:500}.hero{padding:56px 0;background:linear-gradient(120deg,#f4f0e6,#fbfaf6)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--sage-dark);font-weight:850}h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.18}h1{font-size:clamp(2.3rem,6vw,3.8rem);letter-spacing:-.035em;margin:12px 0}h2{font-size:1.8rem;margin-top:38px}p,li{color:#50584d}.content{padding:34px 0 64px}.product-image{display:block;width:min(100%,360px);max-height:390px;object-fit:contain;margin:4px auto 14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}.caption{text-align:center;color:var(--muted);font-size:.88rem}.note{background:#eef0e7;border-left:4px solid var(--sage);padding:18px 20px;border-radius:0 12px 12px 0;margin:24px 0}.product{border:1px solid var(--line);background:#fff;border-radius:18px;padding:22px;margin:24px 0}.btn{display:inline-block;background:var(--sage-dark);color:#fff;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:800;margin:5px 8px 5px 0}.btn.secondary{background:transparent;color:var(--sage-dark);border:1px solid #d8dfd1}.small{font-size:.9rem;color:var(--muted)}footer{margin-top:24px}@media(max-width:560px){.head-inner{align-items:flex-start;flex-direction:column}.hero{padding:42px 0}}
 </style>
+
+<style id="woelag-mobile-buttons">
+/* Consistent button sizing and mobile-safe layouts */
+button,.btn,.button,.cta,.cta-button,.link,.buy-button,.product-button,a[role="button],input[type="button"],input[type="submit"]{
+  max-width:100%;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box;
+}
+button,.btn,.button,.cta,.cta-button,.buy-button,.product-button,input[type="button"],input[type="submit"]{
+  min-width:0;
+}
+img,video,iframe{max-width:100%}
+@media(max-width:640px){
+  button,.btn,.button,.cta,.cta-button,.link,.buy-button,.product-button,a[role="button"],input[type="button"],input[type="submit"]{
+    font-size:clamp(.82rem,3.5vw,1rem)!important;
+    padding:clamp(9px,2.7vw,12px) clamp(12px,3.5vw,18px)!important;
+    min-height:42px;line-height:1.35;white-space:normal;overflow-wrap:anywhere;
+  }
+  .btn,.button,.cta,.cta-button,.buy-button,.product-button{width:auto;max-width:100%}
+  .actions,.button-group,.btn-group,.cta-group,.hero-actions,.card-actions{display:flex;flex-wrap:wrap;gap:10px}
+  .actions a,.button-group a,.btn-group a,.cta-group a,.hero-actions a,.card-actions a{max-width:100%;min-width:0}
+}
+#woelag-back-to-top-wrap{display:flex;justify-content:center;padding:22px 16px 28px}
+#woelag-back-to-top{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;min-height:44px;padding:11px 20px;border:1px solid #d8dfd1;border-radius:999px;background:#40503d;color:#fff;text-decoration:none;font:700 15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box;transition:background .2s ease,transform .2s ease}
+#woelag-back-to-top:hover{background:#71836a;transform:translateY(-2px)}
+#woelag-back-to-top:focus-visible{outline:3px solid #b77c60;outline-offset:3px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#woelag-back-to-top{transition:none}}
+</style>
 </head>
-<body>
+<body id="top">
 <header class="head"><div class="wrap head-inner"><a class="wordmark" href="index.html">Woelag<span>.fun</span></a><nav><a href="him.html">Men's wellness</a><a href="blogs.html">Featured blogs</a><a href="index.html">Home</a></nav></div></header>
 <section class="hero"><div class="wrap"><div class="eyebrow">Men's wellness · Product guide</div><h1>Aether Men's Health Extract: What's in the Blend?</h1><p>When a product brings several traditional herbs together in one bottle, it is worth looking beyond the headline. This guide reviews the listed ingredients, separates traditional use from established evidence, and highlights practical questions to consider before making a decision.</p></div></section>
 <main class="wrap content">
@@ -36,4 +63,5 @@
 </main>
 <footer><div class="wrap"><small>© 2026 Woelag · <a href="affiliate-disclosure.html">Affiliate disclosure</a> · <a href="privacy.html">Privacy</a> · <a href="editorial-policy.html">Editorial policy</a></small></div></footer>
 <script src="affiliate-slideshow.js" defer></script>
+<div id="woelag-back-to-top-wrap"><a id="woelag-back-to-top" href="#top" aria-label="Back to top of page">↑ Back to top</a></div>
 </body></html>

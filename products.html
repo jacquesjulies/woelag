@@ -42,20 +42,50 @@
 <footer><div class="wrap"><strong>Woelag</strong><p>Independent product discovery and wellness information.</p><nav class="footer-links"><a href="about.html">About</a><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="editorial-policy.html">Editorial policy</a></nav></div></footer>
 <script>
 (function(){
- const select=document.getElementById('category-filter');
- const cards=[...document.querySelectorAll('.card[data-category]')];
- function matches(card,filter){
-  const c=card.dataset.category.toLowerCase();
-  if(filter==='all') return true;
-  if(filter==='herbal') return /herbal|maca|botanical|mushroom|adaptogen|resin/.test(c);
-  if(filter==='personal') return /personal care|personal wellness|facial skincare|body care|skin|hair/.test(c);
-  if(filter==='sexual') return /sexual wellness|libido|fertility/.test(c);
-  if(filter==='lifestyle') return /lifestyle|relaxation|drinkware|wellness products/.test(c);
-  if(filter==='supplements') return /supplement|vitamin|minerals|nutrition|probiotic|gut health|men.s wellness|women.s wellness|antioxidant|omega|ingredients/.test(c) && !/sexual wellness/.test(c);
-  return true;
- }
- function applyFilter(){cards.forEach(card=>{card.hidden=!matches(card,select.value);});}
- select.addEventListener('change',applyFilter);
- applyFilter();
+  const select = document.getElementById('category-filter');
+  const grid = document.getElementById('product-grid');
+  if (!select || !grid) return;
+  const cards = Array.from(grid.querySelectorAll('.card[data-category]'));
+
+  function matchesCategory(card, filter) {
+    if (filter === 'all') return true;
+    const category = (card.dataset.category || '').toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/&amp;/g, '&');
+
+    const rules = {
+      supplements: /vitamin|supplement|mineral|nutrition|probiotic|gut health|omega|antioxidant|ingredient|k2|zinc|magnesium|men's wellness|women's wellness/,
+      herbal: /herbal|botanical|maca|mushroom|adaptogen|resin|ashwagandha|lion's mane|tongkat|shilajit|zeolite/,
+      personal: /personal care|personal wellness|facial skincare|skin|hair|body care|cleanser|serum|beauty/,
+      sexual: /sexual wellness|libido|fertility|prostate|men's wellness|women's wellness/,
+      lifestyle: /lifestyle|drinkware|wellness products|relaxation|grounding|copper bottle|mat/
+    };
+    return rules[filter] ? rules[filter].test(category) : true;
+  }
+
+  function applyFilter() {
+    const filter = select.value;
+    let visible = 0;
+    cards.forEach(card => {
+      const show = matchesCategory(card, filter);
+      card.hidden = !show;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    let empty = grid.querySelector('.filter-empty');
+    if (!visible) {
+      if (!empty) {
+        empty = document.createElement('p');
+        empty.className = 'filter-empty';
+        empty.textContent = 'No products are listed in this category yet. Please choose another category.';
+        empty.style.cssText = 'grid-column:1/-1;padding:24px;text-align:center;color:#657064;';
+        grid.appendChild(empty);
+      }
+    } else if (empty) {
+      empty.remove();
+    }
+  }
+  select.addEventListener('change', applyFilter);
+  applyFilter();
 })();
 </script></body></html>

@@ -110,13 +110,12 @@ if(pathName==="blogs.html"){
  }
 }else{
  const main=document.querySelector("main")||document.body;
- const hero=main.querySelector(".hero");
- if(hero){
-  const nextContent=hero.nextElementSibling;
-  (nextContent||hero).insertAdjacentElement("afterend",wrap);
+ const contentSections=Array.from(main.children).filter(el=>!["SCRIPT","STYLE"].includes(el.tagName)&&!el.matches("footer,.site-footer,.financial-ad-strip,[data-wa-financial-widget]"));
+ if(contentSections.length>=3){
+  contentSections[Math.floor(contentSections.length/2)-1].insertAdjacentElement("afterend",wrap);
  }else{
-  const header=document.querySelector("header");
-  if(header)header.insertAdjacentElement("afterend",wrap);
+  const hero=main.querySelector(".hero");
+  if(hero)hero.insertAdjacentElement("afterend",wrap);
   else main.insertAdjacentElement("afterbegin",wrap);
  }
 }
@@ -131,4 +130,47 @@ allDots.forEach(d=>d.addEventListener("click",()=>{show(Number(d.dataset.go));st
 wrap.addEventListener("mouseenter",stop);wrap.addEventListener("mouseleave",start);wrap.addEventListener("focusin",stop);wrap.addEventListener("focusout",()=>{if(!wrap.contains(document.activeElement))start();});
 document.addEventListener("visibilitychange",()=>{if(document.hidden)stop();else start();});reduce.addEventListener?.("change",start);
 show(current);start();
+
+/* Keep the financial-offers carousel separate and at the bottom of each product page. */
+if(pathName!=="index.html"&&!document.querySelector("[data-wa-financial-widget]")&&!document.getElementById("financial-ad-slider")){
+ const financialOffers=[
+  ["LimeLoan","Advertisement · Personal finance","Explore the details before you decide.","Review the provider’s eligibility criteria, fees and repayment terms before submitting an application.","https://c.trackmytarget.com/?a=houb31&i=el31qe","https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85","Person reviewing financial paperwork and a calculator","View offer ↗"],
+  ["Lulalend / Lula","Advertisement · Business funding","Looking into business funding?","Explore the provider’s business-funding information and check its current eligibility criteria, costs and repayment conditions.","https://c.trackmytarget.com/?a=yd9acf&i=el31qe","https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85","Small business owners reviewing plans at a desk","View offer ↗"],
+  ["Boodle","Advertisement · Finance","Understand the terms first.","Read the offer information carefully and confirm the total cost, repayment schedule and eligibility requirements directly with the provider.","https://c.trackmytarget.com/?a=yde692&i=el31qe","https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85","Person reviewing a payment on a tablet","View offer ↗"],
+  ["DebtBusters","Advertisement · Debt solutions","Explore debt-support options.","Learn about debt counselling and available support options. Check the service, fees and implications carefully before making a decision.","https://c.trackmytarget.com/?a=pje5i4&i=el31qe","https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85","Person reviewing paperwork and making a financial plan","View service ↗"]
+ ];
+ const finance=document.createElement("section");
+ finance.className="wa-affiliate-wrap wa-financial-wrap";
+ finance.setAttribute("data-wa-financial-widget","");
+ finance.setAttribute("aria-label","Financial services and offers");
+ finance.innerHTML='<div class="wa-affiliate-heading"><span>Financial services &amp; offers</span><span>Separate sponsored section</span></div><p class="wa-financial-intro">These advertisements are separate from Woelag’s wellness content. Review each provider’s eligibility requirements, fees, terms and conditions carefully before deciding whether to proceed.</p><div class="wa-affiliate-frame wa-financial-frame" role="region" aria-roledescription="carousel" aria-label="Sponsored financial services"><div class="wa-affiliate-slides"></div></div><div class="wa-affiliate-controls"><button class="wa-affiliate-arrow" type="button" data-fin-prev aria-label="Previous financial offer">‹</button><div class="wa-affiliate-dots" role="group" aria-label="Choose a financial advert"></div><button class="wa-affiliate-arrow" type="button" data-fin-next aria-label="Next financial offer">›</button></div><p class="wa-affiliate-note">Advertisement · Woelag may earn a commission if you follow these links. Woelag is not the lender or debt counsellor. Credit is subject to the provider’s assessment and terms; consider your ability to repay before applying.</p>';
+ const finStyle=document.createElement("style");
+ finStyle.textContent=".wa-financial-wrap{margin-top:42px;padding-top:28px;border-top:1px solid #e4dfd2}.wa-financial-intro{color:#657064;max-width:820px;line-height:1.6;margin:0 0 14px}.wa-financial-frame .wa-affiliate-slide{min-height:250px}.wa-financial-frame .wa-affiliate-copy{background:linear-gradient(135deg,#f8f4e9,#e8ece2)}.wa-financial-frame .wa-affiliate-visual{background:linear-gradient(135deg,#dce5d8,#c8d3c0)}.wa-financial-frame .wa-affiliate-slide:not(.is-active){display:none}.wa-financial-frame .wa-affiliate-slide.is-active{display:grid}";
+ document.head.appendChild(finStyle);
+ const finSlides=finance.querySelector(".wa-affiliate-slides"),finDots=finance.querySelector(".wa-affiliate-dots");
+ financialOffers.forEach((o,i)=>{
+  const article=document.createElement("article");article.className="wa-affiliate-slide";article.setAttribute("aria-hidden","true");
+  article.innerHTML='<div class="wa-affiliate-copy"><span class="wa-affiliate-tag"></span><div class="wa-affiliate-kicker"></div><h2></h2><p></p><a class="wa-affiliate-cta" target="_blank" rel="sponsored nofollow noopener noreferrer"></a></div><a class="wa-affiliate-visual" target="_blank" rel="sponsored nofollow noopener noreferrer"><img loading="lazy"></a>';
+  article.querySelector(".wa-affiliate-tag").textContent=o[1];article.querySelector(".wa-affiliate-kicker").textContent=o[0];article.querySelector("h2").textContent=o[2];article.querySelector("p").textContent=o[3];
+  const cta=article.querySelector(".wa-affiliate-cta");cta.href=o[4];cta.textContent=o[7];
+  const visual=article.querySelector(".wa-affiliate-visual");visual.href=o[4];visual.setAttribute("aria-label","View "+o[0]+" offer through affiliate link");
+  const img=article.querySelector("img");img.src=o[5];img.alt=o[6];img.loading="lazy";
+  finSlides.appendChild(article);
+  const dot=document.createElement("button");dot.className="wa-affiliate-dot";dot.type="button";dot.dataset.go=String(i);dot.setAttribute("aria-label","Show "+o[0]+" advert");dot.setAttribute("aria-current","false");finDots.appendChild(dot);
+ });
+ const financialItems=Array.from(finSlides.children),financialDots=Array.from(finDots.children);
+ let financialCurrent=0,financialTimer=null;
+ function showFinancial(n){financialCurrent=(n+financialItems.length)%financialItems.length;financialItems.forEach((slide,i)=>{slide.classList.toggle("is-active",i===financialCurrent);slide.setAttribute("aria-hidden",String(i!==financialCurrent));});financialDots.forEach((dot,i)=>dot.setAttribute("aria-current",String(i===financialCurrent)));}
+ function stopFinancial(){if(financialTimer){clearInterval(financialTimer);financialTimer=null;}}
+ function startFinancial(){stopFinancial();if(!reduce.matches&&!document.hidden)financialTimer=setInterval(()=>showFinancial(financialCurrent+1),7500);}
+ finance.querySelector("[data-fin-prev]").addEventListener("click",()=>{showFinancial(financialCurrent-1);startFinancial();});
+ finance.querySelector("[data-fin-next]").addEventListener("click",()=>{showFinancial(financialCurrent+1);startFinancial();});
+ financialDots.forEach(dot=>dot.addEventListener("click",()=>{showFinancial(Number(dot.dataset.go));startFinancial();}));
+ finance.addEventListener("mouseenter",stopFinancial);finance.addEventListener("mouseleave",startFinancial);finance.addEventListener("focusin",stopFinancial);finance.addEventListener("focusout",()=>{if(!finance.contains(document.activeElement))startFinancial();});
+ document.addEventListener("visibilitychange",()=>{if(document.hidden)stopFinancial();else startFinancial();});
+ showFinancial(0);startFinancial();
+ const footer=document.querySelector("footer,.site-footer");
+ if(footer)footer.insertAdjacentElement("beforebegin",finance);
+ else (document.querySelector("main")||document.body).appendChild(finance);
+}
 })();

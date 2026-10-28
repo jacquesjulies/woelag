@@ -9,7 +9,7 @@
     mark.setAttribute("aria-label", "Proudly Oudtshoorn");
     mark.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Ostrich.svg" alt="Ostrich" loading="lazy"><span>PROUDLY OUDTSHOORN</span>';
     const style = document.createElement("style");
-    style.textContent = ".woelag-oudtshoorn-mark{display:flex;flex-direction:column;align-items:center;gap:5px;margin:22px auto 0;padding:0 10px 8px;color:#65714b;text-align:center}.woelag-oudtshoorn-mark img{display:block;width:31px;height:43px;object-fit:contain;filter:grayscale(1) sepia(.45) saturate(.75) hue-rotate(25deg)}.woelag-oudtshoorn-mark span{font:600 9px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.19em;color:#65714b}@media(max-width:520px){.woelag-oudtshoorn-mark{margin-top:18px}.woelag-oudtshoorn-mark img{width:27px;height:38px}.woelag-oudtshoorn-mark span{font-size:8px}}";
+    style.textContent = ".woelag-oudtshoorn-mark{display:flex;flex-direction:column;align-items:center;gap:5px;margin:22px auto 0;padding:0 10px 8px;color:#65714b;text-align:center}.woelag-oudtshoorn-mark img{display:block;width:31px;height:43px;object-fit:contain;transform:scaleX(-1);filter:grayscale(1) sepia(.45) saturate(.75) hue-rotate(25deg)}.woelag-oudtshoorn-mark span{font:600 9px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.19em;color:#65714b}@media(max-width:520px){.woelag-oudtshoorn-mark{margin-top:18px}.woelag-oudtshoorn-mark img{width:27px;height:38px}.woelag-oudtshoorn-mark span{font-size:8px}}";
     document.head.appendChild(style);
     footer.appendChild(mark);
   };

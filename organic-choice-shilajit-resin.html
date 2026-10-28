@@ -29,16 +29,27 @@ footer{padding:28px 0;background:#e8e2d6}
 footer a{color:var(--forest);margin-right:14px}
  
 </style>
+<style id="woelag-standard-product-layout">
+.hero{background:var(--ivory,#f4f0e6);padding:32px 0 38px}
+.hero-inner{width:min(1000px,92%);margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:30px;align-items:center}
+.hero-copy{min-width:0}.hero-copy .eyebrow,.hero-copy .kicker,.hero-copy .tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sage-dark,#40503d);font-weight:750}
+.hero-copy h1{font:clamp(2rem,5vw,3.1rem)/1.13 Georgia,serif;margin:.5rem 0 1rem;letter-spacing:normal}
+.hero-copy p{color:#53604f}.hero-product-image{display:block;width:100%;max-height:440px;object-fit:contain;border-radius:18px;background:#fff;padding:14px;box-shadow:0 8px 26px #343c3210}
+.hero-copy .btn,.hero-copy a.product-cta{display:inline-block;background:var(--sage-dark,#40503d);color:#fff;text-decoration:none;padding:12px 18px;border-radius:7px;font-weight:700}
+.hero-image-strip{display:none!important}
+@media(max-width:650px){.hero-inner{grid-template-columns:1fr;gap:20px}.hero-product-image{max-height:350px;grid-row:1}.hero{padding:20px 0 28px}}
+</style>
 </head>
 <body>
 <header><div class="wrap"><a class="brand" href="index.html">Woelag</a><span style="float:right"><a href="blogs.html">Wellness guides</a></span></div></header>
-<main class="wrap">
-<section class="hero">
-<img src="image/shilajit.png" alt="Shilajit product image used for this Woelag guide">
+<section class="hero"><div class="hero-inner"><div class="hero-copy">
+
 <div class="kicker">Natural wellness · Evidence & safety</div>
 <h1>Shilajit Resin: Ancient Tradition, Modern Questions</h1>
 <p class="intro">A dark, mineral-rich resin with a long history in traditional wellness practices has attracted fresh attention. But what can research tell us—and what should you check before trusting a supplement label?</p>
-</section>
+</div><img class="hero-product-image" src="image/shilajit.png" alt="Shilajit product image used for this Woelag guide" loading="eager"></div></section>
+<main class="wrap">
+
 
 <article class="content">
 <p>Shilajit is a naturally occurring, tar-like substance found in mountainous regions. It forms over long periods as plant material and other organic matter break down among rocks. In Ayurveda, it has traditionally been used as a rejuvenating substance. Today, it is marketed for energy, vitality, memory, hormone balance and general wellbeing.</p>

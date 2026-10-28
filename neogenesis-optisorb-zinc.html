@@ -9,11 +9,21 @@
 :root{--sage:#71836a;--sage-dark:#40503d;--ivory:#f4f0e6;--terra:#b77c60;--dark:#343c32;--muted:#657064;--line:#e4dfd2}*{box-sizing:border-box}body{margin:0;background:#fbfaf6;color:var(--dark);font:16px/1.8 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--sage-dark)}.wrap{width:min(820px,92%);margin:auto}.head,footer{background:var(--ivory);padding:20px 0}.head a,footer a{font-weight:700}.hero{padding:54px 0 42px;background:radial-gradient(ellipse at 85% 12%,#e1e8d8 0,transparent 42%),linear-gradient(120deg,#f4f0e6,#fbfaf6)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--sage-dark);font-weight:850}h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.18}h1{font-size:clamp(2.3rem,6vw,3.8rem);letter-spacing:-.035em;margin:12px 0}h2{font-size:1.8rem;margin-top:38px}p,li{color:#50584d}.content{padding:34px 0 65px}.note{background:#eef0e7;border-left:4px solid var(--sage);padding:18px 20px;border-radius:0 12px 12px 0;margin:24px 0}.product-image{display:block;width:min(100%,420px);max-height:420px;object-fit:contain;margin:26px auto 8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}.image-caption{text-align:center;color:var(--muted);font-size:.85rem;margin:0 auto 24px}.product{border:1px solid var(--line);background:#fff;border-radius:18px;padding:22px;margin:24px 0}.btn{display:inline-block;background:var(--sage-dark);color:#fff;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:800}.sources li{margin:12px 0}.disclosure{font-size:.9rem;color:var(--muted)}footer{margin-top:24px}.art{min-height:220px;border-radius:18px;background:linear-gradient(120deg,#e5eadf,#f4f0e6);display:grid;place-items:center;padding:24px;text-align:center;color:var(--sage-dark);font-family:Georgia,serif;font-size:1.5rem}
 
 </style>
+<style id="woelag-standard-product-layout">
+.hero{background:var(--ivory,#f4f0e6);padding:32px 0 38px}
+.hero-inner{width:min(1000px,92%);margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:30px;align-items:center}
+.hero-copy{min-width:0}.hero-copy .eyebrow,.hero-copy .kicker,.hero-copy .tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sage-dark,#40503d);font-weight:750}
+.hero-copy h1{font:clamp(2rem,5vw,3.1rem)/1.13 Georgia,serif;margin:.5rem 0 1rem;letter-spacing:normal}
+.hero-copy p{color:#53604f}.hero-product-image{display:block;width:100%;max-height:440px;object-fit:contain;border-radius:18px;background:#fff;padding:14px;box-shadow:0 8px 26px #343c3210}
+.hero-copy .btn,.hero-copy a.product-cta{display:inline-block;background:var(--sage-dark,#40503d);color:#fff;text-decoration:none;padding:12px 18px;border-radius:7px;font-weight:700}
+.hero-image-strip{display:none!important}
+@media(max-width:650px){.hero-inner{grid-template-columns:1fr;gap:20px}.hero-product-image{max-height:350px;grid-row:1}.hero{padding:20px 0 28px}}
+</style>
 </head>
-<body>
+<body><section class="hero"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">Featured ingredient guide · Zinc</div><h1>Zinc: A Small Mineral With an Important Role in Women's and Men's Health</h1><p>From immune function and skin repair to reproductive health, zinc quietly supports many of the body's everyday systems. Understanding what it does—and what low levels can mean—helps put supplements into perspective.</p></div><img class="hero-product-image" src="image/zinc.jpg" alt="Zinc supplement product image from the Woelag image library" loading="eager"></div></section>
 <header class="head"><div class="wrap"><a href="blogs.html">← Back to featured blogs</a> · <a href="index.html">Woelag home</a></div></header>
-<section class="hero"><div class="wrap"><div class="eyebrow">Featured ingredient guide · Zinc</div><h1>Zinc: A Small Mineral With an Important Role in Women's and Men's Health</h1><p>From immune function and skin repair to reproductive health, zinc quietly supports many of the body's everyday systems. Understanding what it does—and what low levels can mean—helps put supplements into perspective.</p></div></section>
-<div class="wrap" style="padding-top:24px;padding-bottom:8px"><img src="image/zinc.jpg" alt="Zinc supplement product image from the Woelag image library" loading="lazy" style="display:block;width:min(100%,420px);max-height:420px;object-fit:contain;margin:0 auto;border:1px solid #e4dfd2;border-radius:18px;background:#fff;padding:14px"></div>
+
+<div class="wrap" style="padding-top:24px;padding-bottom:8px"></div>
 <main class="wrap content">
 <div class="art" role="img" aria-label="Illustration of zinc-rich foods and botanical ingredients">Everyday nourishment · Zinc-rich foods · Informed choices</div>
 <p class="image-caption">Woelag's natural wellness visual. See the retailer listing for the exact OptiSorb Zinc bottle and current packaging.</p>

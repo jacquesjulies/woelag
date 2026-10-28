@@ -18,7 +18,7 @@
       border-radius: 999px;
       background: #355747;
       color: #fff;
-      font: 600 14px/1.2 inherit;
+      font-family: inherit;\n      font-size: 14px;\n      font-weight: 600;\n      line-height: 1.2;
       box-shadow: 0 5px 18px rgba(0,0,0,.18);
       cursor: pointer;
       opacity: 0;

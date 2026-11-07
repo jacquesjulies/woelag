@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.woelag.fun/sitemap.xml
+Sitemap: https://www.woelag.com/sitemap.xml

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://www.woelag.com/</loc><image:image><image:loc>https://www.woelag.com/image/aswaghanda.jpg</image:loc></image:image><image:image><image:loc>https://www.woelag.com/image/black%20maca.jpg</image:loc></image:image></url>
   <url><loc>https://www.woelag.com/about.html</loc></url>
   <url><loc>https://www.woelag.com/adaptogens-stress-support-guide.html</loc></url>

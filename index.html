@@ -28,14 +28,14 @@
     .ad-strip-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
     .ad-strip-head h2{font:800 .78rem/1.2 system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0}
     .ad-frame{position:relative;overflow:hidden;border-radius:24px;background:#e9e7dc;box-shadow:0 12px 32px #343c3212}
-    .ad-slide{display:none;min-height:250px;grid-template-columns:1fr 1fr;align-items:stretch}
+    .ad-slide{display:none;height:320px;min-height:320px;grid-template-columns:1fr 1fr;align-items:stretch;overflow:hidden}
     .ad-slide.is-active{display:grid;animation:adFade .45s ease}
     .ad-copy{padding:clamp(24px,5vw,54px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background:linear-gradient(135deg,#f4f0e6,#e7eadf)}
     .ad-kicker{font-size:.72rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark)}
     .ad-copy h3{font:700 clamp(1.8rem,3.4vw,3rem)/1.08 Georgia,serif;letter-spacing:-.03em;margin:12px 0}
     .ad-copy p{max-width:440px;color:#51594e;margin:0 0 20px}
-    .ad-visual{height:100%;min-height:250px;position:relative;display:block;overflow:hidden;background:linear-gradient(135deg,#dfe5d7,#c6d0bc)}
-    .ad-visual img{display:block;width:100%;height:100%;min-height:250px;position:relative;inset:auto;object-fit:cover;object-position:center}
+    .ad-visual{height:320px;min-height:320px;position:relative;display:block;overflow:hidden;background:linear-gradient(135deg,#dfe5d7,#c6d0bc)}
+    .ad-visual img{display:block;width:100%;height:320px;min-height:320px;max-height:320px;position:relative;inset:auto;object-fit:cover;object-position:center}
     .ad-tag{display:inline-flex;align-items:center;border:1px solid #d7d5c8;border-radius:999px;padding:5px 10px;background:#ffffffa8;color:#5d6558;font-size:.72rem;font-weight:750;margin-bottom:14px}
     .ad-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:15px}
     .ad-arrow{width:38px;height:38px;border-radius:50%;border:1px solid #cfd3c7;background:#fff;color:var(--sage-dark);font-size:1.15rem;cursor:pointer}
@@ -44,7 +44,7 @@
     .ad-dot[aria-current="true"]{background:var(--sage-dark);transform:scale(1.2)}
     .ad-strip-note{font-size:.75rem;color:var(--muted);text-align:center;margin:10px 0 0}
     @keyframes adFade{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:680px){.ad-slide,.ad-slide.is-active{grid-template-columns:1fr}.ad-visual{order:-1;height:220px;min-height:220px}.ad-visual img{height:220px;min-height:220px;max-height:none;position:relative;inset:auto}.ad-copy{padding:23px}.ad-copy h3{font-size:2rem}.ad-strip-head{align-items:flex-start}}
+    @media(max-width:680px){.ad-slide,.ad-slide.is-active{height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:220px auto}.ad-visual{order:-1;height:220px;min-height:220px}.ad-visual img{height:220px;min-height:220px;max-height:220px;position:relative;inset:auto}.ad-copy{padding:23px}.ad-copy h3{font-size:2rem}.ad-strip-head{align-items:flex-start}}
     @media(prefers-reduced-motion:reduce){.ad-slide.is-active{animation:none}}
 
 
@@ -339,6 +339,19 @@
     </div>
   </section>
 
+
+
+  <section id="guides">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Our approach</div><h2>Useful information before the purchase</h2><p>Our goal is to help readers make informed decisions, not to pressure them into buying.</p></div>
+      <div class="steps" id="how-we-work">
+        <article class="step"><div class="eyebrow">01 · Understand</div><h3>Read beyond the headline</h3><p>Look at the full ingredient list, device specifications and the source of any performance or health claim.</p></article>
+        <article class="step"><div class="eyebrow">02 · Compare</div><h3>Check the practical details</h3><p>Review price, subscriptions, compatibility, return terms and whether the product suits your circumstances.</p></article>
+        <article class="step"><div class="eyebrow">03 · Decide</div><h3>Choose at your own pace</h3><p>Where health questions are involved, consult a qualified professional rather than relying on advertising or a website alone.</p></article>
+      </div>
+      <div class="disclosure"><strong>Affiliate disclosure:</strong> Some links on Woelag are affiliate links. If you buy through them, we may receive a commission. This does not increase your price. We aim to make commercial relationships clear and to keep our information fair and accurate.</div>
+    </div>
+  </section>
   <section class="financial-ad-strip" aria-labelledby="financial-offers-title">
     <div class="wrap">
       <div class="section-head">
@@ -398,18 +411,7 @@
     </div>
   </section>
 
-  <section id="guides">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Our approach</div><h2>Useful information before the purchase</h2><p>Our goal is to help readers make informed decisions, not to pressure them into buying.</p></div>
-      <div class="steps" id="how-we-work">
-        <article class="step"><div class="eyebrow">01 · Understand</div><h3>Read beyond the headline</h3><p>Look at the full ingredient list, device specifications and the source of any performance or health claim.</p></article>
-        <article class="step"><div class="eyebrow">02 · Compare</div><h3>Check the practical details</h3><p>Review price, subscriptions, compatibility, return terms and whether the product suits your circumstances.</p></article>
-        <article class="step"><div class="eyebrow">03 · Decide</div><h3>Choose at your own pace</h3><p>Where health questions are involved, consult a qualified professional rather than relying on advertising or a website alone.</p></article>
-      </div>
-      <div class="disclosure"><strong>Affiliate disclosure:</strong> Some links on Woelag are affiliate links. If you buy through them, we may receive a commission. This does not increase your price. We aim to make commercial relationships clear and to keep our information fair and accurate.</div>
-    </div>
-  </section>
-</main>
+  </main>
 <footer class="site-footer">
   <div class="wrap footer-row">
     <div><strong>Woelag</strong><p>Independent product discovery and wellness information. Woelag does not sell, ship or fulfil the products linked from this site. Product details, prices and availability are controlled by the relevant retailer or advertiser.</p><p>Content is for general information only and is not medical advice.</p></div>

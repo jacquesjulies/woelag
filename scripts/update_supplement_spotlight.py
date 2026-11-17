@@ -130,6 +130,7 @@ def main():
           <h3>{safe(article["title"])}</h3>
           <div class="spotlight-meta">Published {today.strftime("%d %B %Y")} · Updated every 30 days</div>
           {paragraphs}
+          <p class="spotlight-internal-link">Want to explore magnesium in more detail? <a href="primeself-magnesium-bisglycinate.html">Read Woelag’s Magnesium Bisglycinate guide</a>.</p>
           <ul class="spotlight-sources">{''.join(source_items)}</ul>
           <div class="spotlight-note">This article is general information, not medical advice or a recommendation to buy or take a supplement. Children and teenagers should only consider supplements with guidance from a parent or guardian and a qualified health professional.</div>
         </div>

@@ -27,6 +27,7 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.15}h1{font-size:
 .filters{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:28px 0 20px}.filters strong{color:var(--sage-dark)}.filters button{border:1px solid #cbd3c4;background:#fff;color:var(--sage-dark);padding:9px 15px;border-radius:999px;font:700 .88rem system-ui;cursor:pointer}.filters button[aria-pressed=true]{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark)}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:0 0 54px}.card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px #343c3208;transition:transform .25s ease,box-shadow .25s ease}.card:hover{transform:translateY(-5px);box-shadow:0 18px 38px #343c3218}
 .photo{display:block;background:#f0eee6;overflow:hidden;height:240px}.photo img{width:100%;height:100%;display:block;object-fit:contain;background:#f7f5ef;transition:transform .35s ease}.card:hover .photo img{transform:scale(1.035)}
+.card[hidden]{display:none!important}
 .card-body{padding:21px;display:flex;flex-direction:column;align-items:flex-start;flex:1}.card h2{font-size:1.35rem;margin:10px 0}.card p{color:var(--muted);font-size:.94rem;margin:0 0 20px;flex:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--sage-dark);color:#fff;text-decoration:none;border-radius:999px;padding:11px 17px;font-weight:800;margin-top:auto}.btn:hover{background:#2e3b2b}
 .serum-art{height:240px;display:flex;align-items:center;justify-content:center;gap:20px;background:radial-gradient(circle at 72% 25%,#f7d6d7,#f8e8e3 42%,#eee4dc)}.bottle{width:112px;height:170px;border-radius:24px 24px 16px 16px;border:2px solid #d7a4a0;background:linear-gradient(90deg,#a42e3e,#d85e68 45%,#8f2438);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 8px 0 12px #ffffff30,0 15px 24px #8f243833;text-align:center}.bottle b{font-size:1.05rem;letter-spacing:.13em}.bottle small{font-size:.56rem;line-height:1.5;letter-spacing:.08em;margin-top:9px}.cherry{font-size:2.6rem;color:#8e2438;text-shadow:12px 10px 0 #b74c5b}
@@ -116,6 +117,25 @@ footer{background:var(--dark);color:#f7f5ee;padding:34px 0}footer p{color:#d9dfd
 <div class="note"><strong>A note before you shop:</strong> Woelag may earn a commission if you purchase through these links, at no additional cost to you. Product descriptions are concise editorial summaries, not medical or dermatological advice. Check the retailer’s current listing for full ingredients, suitability, directions, pricing, stock and shipping. Products containing exfoliating acids may not suit every skin type; introduce new skincare cautiously and follow label directions. SPF makeup should not replace a dedicated sunscreen.</div></div></main>
 <footer><div class="wrap"><strong>Woelag</strong><p>Natural living, informed choices.</p><nav class="footer-links"><a href="about.html">About</a><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="editorial-policy.html">Editorial policy</a><a href="products.html">Product catalogue</a></nav></div></footer>
 <script>
-(function(){const buttons=[...document.querySelectorAll('[data-filter]')];const cards=[...document.querySelectorAll('.card[data-kind]')];buttons.forEach(btn=>btn.addEventListener('click',()=>{const filter=btn.dataset.filter;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));cards.forEach(card=>card.hidden=filter!=='all'&&card.dataset.kind!==filter)});})();
+(function(){
+  const buttons = Array.from(document.querySelectorAll('.filters [data-filter]'));
+  const cards = Array.from(document.querySelectorAll('#naturelle-grid .card[data-kind]'));
+  if (!buttons.length || !cards.length) return;
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter || 'all';
+
+      buttons.forEach(item => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+
+      cards.forEach(card => {
+        const showCard = filter === 'all' || card.dataset.kind === filter;
+        card.hidden = !showCard;
+      });
+    });
+  });
+})();
 </script><script src="back-to-top.js" defer></script><script src="oudtshoorn-signature.js?v=20261029b" defer></script>
 </body></html>

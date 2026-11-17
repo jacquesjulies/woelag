@@ -34,7 +34,7 @@ def main():
         fail("Could not find the Supplement Spotlight markers in index.html.")
 
     today = dt.datetime.now(dt.timezone.utc).date()
-    current_date = re.search(r'data-updated="(\\d{4}-\\d{2}-\\d{2})"', match.group(1))
+    current_date = re.search(r'data-updated="(\d{4}-\d{2}-\d{2})"', match.group(1))
     if current_date and os.environ.get("FORCE_SPOTLIGHT") != "1":
         last = dt.date.fromisoformat(current_date.group(1))
         if (today - last).days < 30:

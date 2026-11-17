@@ -27,10 +27,6 @@ def get_response_text(payload):
     fail("The content-generation API returned no readable article.")
 
 def main():
-    key = os.environ.get("OPENAI_API_KEY")
-    if not key:
-        fail("OPENAI_API_KEY is not configured. Add it as a repository Actions secret before enabling automatic publication.")
-
     with open(PAGE, encoding="utf-8") as file:
         page = file.read()
     match = re.search(re.escape(START) + r"(.*?)" + re.escape(END), page, re.S)
@@ -44,6 +40,10 @@ def main():
         if (today - last).days < 30:
             print(f"Spotlight is only {(today - last).days} days old; no update is due.")
             return
+
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        fail("OPENAI_API_KEY is not configured. Add it as a repository Actions secret before enabling automatic publication.")
 
     schema = {
         "type": "object",

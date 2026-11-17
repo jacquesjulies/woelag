@@ -7,11 +7,18 @@ import os
 import re
 import sys
 import urllib.request
+from urllib.parse import urlparse
 
 PAGE = "index.html"
 START = "<!-- SUPPLEMENT_SPOTLIGHT_START -->"
 END = "<!-- SUPPLEMENT_SPOTLIGHT_END -->"
 IMAGE = "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1200&q=85"
+TRUSTED_SOURCE_HOSTS = (
+    "ods.od.nih.gov", "nih.gov", "medlineplus.gov", "sahpra.org.za",
+    "gov.za", "healthdirect.gov.au", "nhs.uk", "who.int",
+    "pubmed.ncbi.nlm.nih.gov", "cochranelibrary.com", "bmj.com",
+    "mayoclinic.org", "clevelandclinic.org", "harvard.edu",
+)
 
 def fail(message):
     print(message, file=sys.stderr)
@@ -103,7 +110,11 @@ def main():
     source_items = []
     for source in article["sources"]:
         url = source["url"].strip()
-        if not url.startswith("https://"):
+        parsed = urlparse(url)
+        host = (parsed.hostname or "").lower()
+        trusted = any(host == domain or host.endswith("." + domain) for domain in TRUSTED_SOURCE_HOSTS)
+        if parsed.scheme != "https" or not trusted:
+            print(f"Skipping non-approved source: {url}", file=sys.stderr)
             continue
         source_items.append(f'<li><a href="{safe(url)}" target="_blank" rel="noopener noreferrer">{safe(source["title"])}</a></li>')
     if len(source_items) < 2:

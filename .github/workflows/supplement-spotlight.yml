@@ -1,0 +1,42 @@
+name: Refresh Supplement Spotlight
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Publish a fresh spotlight now (bypasses the 30-day check)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate article when due
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          FORCE_SPOTLIGHT: ${{ inputs.force && '1' || '0' }}
+        run: python scripts/update_supplement_spotlight.py
+      - name: Commit and push homepage update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No homepage changes to publish."
+          else
+            git commit -m "Refresh monthly Supplement Spotlight"
+            git push
+          fi
